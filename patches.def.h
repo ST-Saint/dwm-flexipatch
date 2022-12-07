@@ -19,7 +19,7 @@
  * Awesomebar takes precedence over fancybar.
  * https://dwm.suckless.org/patches/awesomebar/
  */
-#define BAR_AWESOMEBAR_PATCH 0
+#define BAR_AWESOMEBAR_PATCH 1
 
 /* This patch depends on statuscmd patch and adds integration with a (patched)
  * dwmblocks instance to give a clickable status bar. One must not necessarily
@@ -29,7 +29,7 @@
  * dwmblocks: https://github.com/torrinfail/dwmblocks
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_DWMBLOCKS_PATCH 0
+#define BAR_DWMBLOCKS_PATCH 1
 
 /* Originally the dwmblocks + statuscmd patch used a user defined signal (SIGUSR1)
  * for communicating with dwmblocks to indicate update signal and what button was
@@ -167,7 +167,7 @@
 /* The systray patch adds systray for the status bar.
  * https://dwm.suckless.org/patches/systray/
  */
-#define BAR_SYSTRAY_PATCH 0
+#define BAR_SYSTRAY_PATCH 1
 
 /* Show tag symbols in the bar. */
 #define BAR_TAGS_PATCH 1
@@ -485,7 +485,7 @@
  * than the original ~/.dwm folder.
  * https://dwm.suckless.org/patches/autostart/
  */
-#define AUTOSTART_PATCH 0
+#define AUTOSTART_PATCH 1
 
 /* By default, windows that are not visible when requesting a resize/move will not
  * get resized/moved. With this patch, they will.
@@ -555,7 +555,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 0
+#define CYCLELAYOUTS_PATCH 1
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -654,7 +654,7 @@
 /* Switch focus only by mouse click and not sloppy (focus follows mouse pointer).
  * https://dwm.suckless.org/patches/focusonclick/
  */
-#define FOCUSONCLICK_PATCH 0
+#define FOCUSONCLICK_PATCH 1
 
 /* Selects the next window having the urgent flag regardless of the tag it is on.
  * The urgent flag can be artificially set with the following xdotool command on any window:
@@ -820,7 +820,7 @@
 /* Removes the border when there is only one window visible.
  * https://dwm.suckless.org/patches/noborder/
  */
-#define NOBORDER_PATCH 0
+#define NOBORDER_PATCH 1
 
 /* Enable modifying or removing dmenu in config.def.h which resulted previously in a
  * compilation error because two lines of code hardcode dmenu into dwm.
@@ -848,7 +848,7 @@
  * https://github.com/szatanjl/dwm/commit/1529909466206016f2101457bbf37c67195714c8
  * https://dwm.suckless.org/patches/alpha/dwm-fixborders-6.2.diff
  */
-#define NO_TRANSPARENT_BORDERS_PATCH 0
+#define NO_TRANSPARENT_BORDERS_PATCH 1
 
 /* Port of InstantWM's on_empty_keys functionality allowing keybindings that apply only when
  * a tag is empty. An example use case is being able to launch applications with first hand
@@ -872,7 +872,7 @@
  * monitor (default).
  * https://dwm.suckless.org/patches/pertag/
  */
-#define PERTAG_PATCH 0
+#define PERTAG_PATCH 1
 
 /* Option to store gaps on a per tag basis rather than on a per monitor basis.
  * Depends on both pertag and vanitygaps patches being enabled.
@@ -942,7 +942,7 @@
  * Additionally dwm can quit cleanly by using kill -TERM dwmpid.
  * https://dwm.suckless.org/patches/restartsig/
  */
-#define RESTARTSIG_PATCH 0
+#define RESTARTSIG_PATCH 1
 
 /* Adds rio-like drawing to resize the selected client.
  * This depends on an external tool slop being installed.
@@ -1002,7 +1002,7 @@
  *
  * The above is not persisted across reboots, however.
  */
-#define SEAMLESS_RESTART_PATCH 0
+#define SEAMLESS_RESTART_PATCH 1
 
 /* As opposed to the original patch this only adds a rule option allowing fake fullscreen
  * to be enabled for applications when they start. This is intended to be used in combination
@@ -1030,7 +1030,7 @@
  * Also see the focusadjacenttag patch.
  * https://dwm.suckless.org/patches/shift-tools/
  */
-#define SHIFTBOTH_PATCH 0
+#define SHIFTBOTH_PATCH 1
 
 /* Swaps all the clients on the current tag with all the client on the next/prev tag.
  * Depends on the swaptags patch.
@@ -1053,7 +1053,7 @@
 /* This patch adds keybindings for left and right circular shift through tags.
  * https://github.com/chau-bao-long/dotfiles/blob/master/suckless/dwm/shiftview.diff
  */
-#define SHIFTVIEW_PATCH 0
+#define SHIFTVIEW_PATCH 1
 
 /* This variant of the shiftview patch adds left and right circular shift through tags,
  * but skips tags where there are no clients.
@@ -1180,7 +1180,7 @@
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-switchtag-6.2.diff
  * Also see https://dwm.suckless.org/patches/switchtotag
  */
-#define SWITCHTAG_PATCH 0
+#define SWITCHTAG_PATCH 1
 
 /* This patch transforms the monocle layout into a "tabbed" layout if more than one window is
  * present on the monocle view. This patch has been added for demonstration purposes only and has
