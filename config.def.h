@@ -492,13 +492,12 @@ static const Rule rules[] = {
         RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
         RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
         RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-        RULE(.class = "Gimp", .tags = 1 << 4)
-        RULE(.class = "Firefox", .tags = 1 << 7)
-        RULE(.class = "Emacs", .tags = 1 << 1)
-        RULE(.class = "Google-chome", .tags = 1 << 2)
-        RULE(.class = "Wine", .tags = 1 << 7)
-        RULE(.class = "discord", .tags = 1 << 7)
-        RULE(.class = "slack", .tags = 1 << 7)
+        RULE(.class = "Emacs", .tags = 1 << 1, .switchtag = 1)
+        RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1)
+        RULE(.class = "Wine", .tags = 1 << 7, .switchtag = 1)
+        RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1)
+        RULE(.class = "slack", .tags = 1 << 7, .switchtag = 1)
+        RULE(.class = "netease-cloud-music", .tags = 1 << 6, .switchtag = 1)
         #if RENAMED_SCRATCHPADS_PATCH
         RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
         #elif SCRATCHPADS_PATCH
@@ -908,6 +907,7 @@ static const Key keys[] = {
         #endif // KEYMODES_PATCH
         /* { MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } }, */
         { MODKEY,                       XK_p,          spawn,                  SHCMD("rofi -show run") },
+        { MODKEY|ShiftMask,             XK_p,          spawn,                  SHCMD("SUDO_ASKPASS=~/.config/rofi/sudo-rofi.sh rofi -show run -run-command \"sudo -A {cmd}\"") },
         { MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
         #if RIODRAW_PATCH
         { MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
