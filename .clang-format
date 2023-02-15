@@ -8,4 +8,4 @@ BasedOnStyle: LLVM
 TabWidth: 4
 
 # 使用tab字符: Never, ForIndentation, ForContinuationAndIndentation, Always
-UseTab: Always
+UseTab: Never

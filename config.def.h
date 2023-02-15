@@ -923,7 +923,7 @@ static const Key keys[] = {
         #endif // FOCUSMASTER_PATCH
         #if STACKER_PATCH
         STACKKEYS(MODKEY,                              focus)
-        STACKKEYS(MODKEY|ShiftMask,                    push)
+        STACKKEYS(MODKEY|ControlMask,                  push)
         #else
         { MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
         { MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
@@ -1023,8 +1023,13 @@ static const Key keys[] = {
         { Mod1Mask,                     XK_Tab,        alttabstart,            {0} },
         #else
         /* { MODKEY,                       XK_Tab,        view,                   {0} }, */
-        { MODKEY,                       XK_Tab,          focusstack,             {.i = +1 } },
-        { MODKEY|ShiftMask,             XK_Tab,          focusstack,             {.i = -1 } },
+        #if STACKER_PATCH
+        { MODKEY,                       XK_Tab,        focusstack,             {.i = INC(+1) } },
+        { MODKEY|ShiftMask,             XK_Tab,        focusstack,             {.i = INC(-1) } },
+        #else
+        { MODKEY,                       XK_Tab,        focusstack,             {.i = +1 } },
+        { MODKEY|ShiftMask,             XK_Tab,        focusstack,             {.i = -1 } },
+        #endif
         #endif // ALT_TAB_PATCH
         #if SHIFTTAG_PATCH
         { MODKEY|ShiftMask,             XK_Left,       shifttag,               { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagtoleft
@@ -1035,8 +1040,8 @@ static const Key keys[] = {
         { MODKEY|ShiftMask|ControlMask, XK_Right,      shifttagclients,        { .i = +1 } },
         #endif // SHIFTTAGCLIENTS_PATCH
         #if SHIFTVIEW_PATCH
-        /* { MODKEY|ShiftMask,             XK_Tab,        shiftview,              { .i = -1 } }, */
-        /* { MODKEY|ShiftMask,             XK_backslash,  shiftview,              { .i = +1 } }, */
+        { MODKEY,                       XK_Left,       shiftview,              { .i = -1 } },
+        { MODKEY,                       XK_Right,      shiftview,              { .i = +1 } },
         { MODKEY|ControlMask,           XK_Left,       shiftview,              { .i = -1 } },
         { MODKEY|ControlMask,           XK_Right,      shiftview,              { .i = +1 } },
         #endif // SHIFTVIEW_PATCH
