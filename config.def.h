@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/XF86keysym.h>
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
@@ -875,7 +875,7 @@ static const char *dmenucmd[] = {
         #endif // BAR_DMENUMATCHTOP_PATCH
         NULL
 };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1312,6 +1312,8 @@ static const Key keys[] = {
         TAGKEYS(                        XK_7,                                  6)
         TAGKEYS(                        XK_8,                                  7)
         TAGKEYS(                        XK_9,                                  8)
+        { 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume 0 -5% && amixer get Master | tail -n1 | sed -r 's/.*\\[(.*)%\\].*/\\1/' | xargs volnoti-show") },
+        { 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume 0 +5% && amixer get Master | tail -n1 | sed -r 's/.*\\[(.*)%\\].*/\\1/' | xargs volnoti-show") }
 };
 
 #if KEYMODES_PATCH
