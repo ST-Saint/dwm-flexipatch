@@ -494,7 +494,7 @@ static const Rule rules[] = {
         RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
         RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
         RULE(.class = "Emacs", .tags = 1 << 1, .switchtag = 1)
-        RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1)
+        RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1)
         RULE(.class = "Wine", .tags = 1 << 7, .switchtag = 1)
         RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1)
         RULE(.class = "slack", .tags = 1 << 7, .switchtag = 1)
@@ -875,7 +875,7 @@ static const char *dmenucmd[] = {
         #endif // BAR_DMENUMATCHTOP_PATCH
         NULL
 };
-static const char *termcmd[]  = { "wezterm", NULL };
+static const char *termcmd[]  = { "kitty", "-1", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
