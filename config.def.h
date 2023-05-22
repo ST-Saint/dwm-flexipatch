@@ -1312,8 +1312,8 @@ static const Key keys[] = {
         TAGKEYS(                        XK_7,                                  6)
         TAGKEYS(                        XK_8,                                  7)
         TAGKEYS(                        XK_9,                                  8)
-        { 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume 0 -5% && amixer get Master | tail -n1 | sed -r 's/.*\\[(.*)%\\].*/\\1/' | xargs volnoti-show") },
-        { 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume 0 +5% && amixer get Master | tail -n1 | sed -r 's/.*\\[(.*)%\\].*/\\1/' | xargs volnoti-show") }
+        { 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume 0 -5% && pactl get-sink-volume 0 | head -n1 | awk '{print $5}' | sed 's/%//g' | xargs volnoti-show") },
+        { 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume 0 +5% && pactl get-sink-volume 0 | head -n1 | awk '{print $5}' | sed 's/%//g' | xargs volnoti-show") }
 };
 
 #if KEYMODES_PATCH
