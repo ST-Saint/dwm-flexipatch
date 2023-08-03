@@ -496,6 +496,7 @@ static const Rule rules[] = {
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1)
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1)
 	RULE(.class = "netease-cloud-music", .tags = 1 << 6, .switchtag = 1)
+	RULE(.class = "sayonara", .tags = 1 << 6, .switchtag = 1)
 	RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
