@@ -498,6 +498,7 @@ static const Rule rules[] = {
 	RULE(.class = "netease-cloud-music", .tags = 1 << 6, .switchtag = 1)
 	RULE(.class = "sayonara", .tags = 1 << 6, .switchtag = 1)
 	RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1)
+	RULE(.class = "Slack", .tags = 1 << 7, .switchtag = 1)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -1029,8 +1030,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask, XK_Right,      shifttagclients,        { .i = +1 } },
 	#endif // SHIFTTAGCLIENTS_PATCH
 	#if SHIFTVIEW_PATCH
-	{ MODKEY|ShiftMask,             XK_Tab,        shiftview,              { .i = -1 } },
-	{ MODKEY|ShiftMask,             XK_backslash,  shiftview,              { .i = +1 } },
+	{ MODKEY,                       XK_Left,       shiftview,              { .i = -1 } },
+	{ MODKEY,                       XK_Right,      shiftview,              { .i = +1 } },
+	/* { MODKEY|ShiftMask,             XK_Tab,        shiftview,              { .i = -1 } }, */
+	/* { MODKEY|ShiftMask,             XK_backslash,  shiftview,              { .i = +1 } }, */
 	#endif // SHIFTVIEW_PATCH
 	#if SHIFTVIEW_CLIENTS_PATCH
 	{ MODKEY|Mod4Mask,              XK_Tab,        shiftviewclients,       { .i = -1 } },
