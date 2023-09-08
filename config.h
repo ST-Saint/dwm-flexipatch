@@ -1141,7 +1141,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
 	#endif // SCRATCHPAD_ALT_1_PATCH
 	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },
+	{ MODKEY,                       XK_comma,      spawn,                  SHCMD("notify-send -u low Monitor") },
 	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
+	{ MODKEY,                       XK_period,     spawn,                  SHCMD("notify-send -u low Monitor") },
 	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
