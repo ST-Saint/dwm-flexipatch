@@ -496,9 +496,9 @@ static const Rule rules[] = {
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1)
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1)
 	RULE(.class = "netease-cloud-music", .tags = 1 << 6, .switchtag = 1)
-	RULE(.class = "sayonara", .tags = 1 << 6, .switchtag = 1)
-	RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1)
-	RULE(.class = "Slack", .tags = 1 << 7, .switchtag = 1)
+	RULE(.class = "sayonara", .tags = 1 << 6, .switchtag = 1, .monitor = 1)
+	RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1, .monitor = 1)
+	RULE(.class = "Slack", .tags = 1 << 7, .switchtag = 1, .monitor = 1)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -561,7 +561,7 @@ static const BarRule barrules[] = {
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_taggrid,            draw_taggrid,           click_taggrid,           NULL,                    "taggrid" },
 	#endif // BAR_TAGGRID_PATCH
 	#if BAR_SYSTRAY_PATCH
-	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
+	{'A',        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
 	#endif // BAR_SYSTRAY_PATCH
 	#if BAR_LTSYMBOL_PATCH
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
@@ -1040,8 +1040,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_backslash,  shiftviewclients,       { .i = +1 } },
 	#endif // SHIFTVIEW_CLIENTS_PATCH
 	#if SHIFTBOTH_PATCH
-	{ MODKEY|ControlMask,           XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
-	{ MODKEY|ControlMask,           XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
+	{ MODKEY|ShiftMask,             XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
+	{ MODKEY|ShiftMask,             XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
 	#endif // SHIFTBOTH_PATCH
 	#if SHIFTSWAPTAGS_PATCH && SWAPTAGS_PATCH
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_Left,       shiftswaptags,          { .i = -1 } },
@@ -1140,12 +1140,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
 	#endif // SCRATCHPAD_ALT_1_PATCH
-	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },
-	{ MODKEY,                       XK_comma,      spawn,                  SHCMD("notify-send -u low Monitor") },
-	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
-	{ MODKEY,                       XK_period,     spawn,                  SHCMD("notify-send -u low Monitor") },
-	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_Left,      focusmon,               {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_Right,     focusmon,               {.i = +1 } },
+	{ MODKEY,                       XK_slash,     spawn,                  SHCMD("notify-send --icon='~/.config/dunst/monitor.png' --urgency low Monitor") },
+	{ MODKEY|ShiftMask|ControlMask, XK_Left,      tagmon,                 {.i = -1 } },
+	{ MODKEY|ShiftMask|ControlMask, XK_Right,     tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
 	{ MODKEY,                       XK_Left,       viewtoleft,             {0} }, // note keybinding conflict with focusdir
 	{ MODKEY,                       XK_Right,      viewtoright,            {0} }, // note keybinding conflict with focusdir
