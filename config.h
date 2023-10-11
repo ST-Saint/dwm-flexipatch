@@ -492,13 +492,13 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Emacs", .tags = 1 << 1, .switchtag = 1)
+	RULE(.class = "Emacs", .tags = 1 << 1, .switchtag = 1, .monitor = 0)
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1)
-	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1)
+	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .monitor = 0)
 	RULE(.class = "netease-cloud-music", .tags = 1 << 6, .switchtag = 1)
-	RULE(.class = "sayonara", .tags = 1 << 6, .switchtag = 1, .monitor = 1)
-	RULE(.class = "discord", .tags = 1 << 7, .switchtag = 1, .monitor = 1)
-	RULE(.class = "Slack", .tags = 1 << 7, .switchtag = 1, .monitor = 1)
+	RULE(.class = "sayonara", .tags = 1 << 6, .monitor = 1)
+	RULE(.class = "discord", .tags = 1 << 7, .monitor = 1)
+	RULE(.class = "Slack", .tags = 1 << 7, .monitor = 1)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -1040,8 +1040,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_backslash,  shiftviewclients,       { .i = +1 } },
 	#endif // SHIFTVIEW_CLIENTS_PATCH
 	#if SHIFTBOTH_PATCH
-	{ MODKEY|ShiftMask,             XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
-	{ MODKEY|ShiftMask,             XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
+	{ MODKEY|ControlMask,           XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
+	{ MODKEY|ControlMask,           XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
 	#endif // SHIFTBOTH_PATCH
 	#if SHIFTSWAPTAGS_PATCH && SWAPTAGS_PATCH
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_Left,       shiftswaptags,          { .i = -1 } },
@@ -1140,11 +1140,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
 	#endif // SCRATCHPAD_ALT_1_PATCH
-	{ MODKEY|ControlMask,           XK_Left,      focusmon,               {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_Right,     focusmon,               {.i = +1 } },
-	{ MODKEY,                       XK_slash,     spawn,                  SHCMD("notify-send --icon='~/.config/dunst/monitor.png' --urgency low Monitor") },
-	{ MODKEY|ShiftMask|ControlMask, XK_Left,      tagmon,                 {.i = -1 } },
-	{ MODKEY|ShiftMask|ControlMask, XK_Right,     tagmon,                 {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Left,       focusmon,               {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_Right,      focusmon,               {.i = +1 } },
+	{ MODKEY,                       XK_slash,      spawn,                  SHCMD("notify-send --icon='~/.config/dunst/monitor.png' --urgency low Monitor") },
+	{ MODKEY|ShiftMask|ControlMask, XK_Left,       tagmon,                 {.i = -1 } },
+	{ MODKEY|ShiftMask|ControlMask, XK_Right,      tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
 	{ MODKEY,                       XK_Left,       viewtoleft,             {0} }, // note keybinding conflict with focusdir
 	{ MODKEY,                       XK_Right,      viewtoright,            {0} }, // note keybinding conflict with focusdir
