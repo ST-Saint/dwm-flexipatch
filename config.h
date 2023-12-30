@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
@@ -1142,6 +1144,7 @@ static const Key keys[] = {
 	#endif // SCRATCHPAD_ALT_1_PATCH
 	{ MODKEY|ShiftMask,             XK_Left,       focusmon,               {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,      focusmon,               {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_Tab,        focusmon,               {.i = +1 } },
 	{ MODKEY,                       XK_slash,      spawn,                  SHCMD("notify-send --icon='~/.config/dunst/monitor.png' --urgency low Monitor") },
 	{ MODKEY|ShiftMask|ControlMask, XK_Left,       tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask|ControlMask, XK_Right,      tagmon,                 {.i = +1 } },
@@ -1303,6 +1306,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
 	{ MODKEY,                       XK_Print,      spawn,                 SHCMD("flameshot gui") },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn,       SHCMD("pactl set-sink-volume 0 +2%") },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn,       SHCMD("pactl set-sink-volume 0 -2%") },
 };
 
 #if KEYMODES_PATCH
