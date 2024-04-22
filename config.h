@@ -1042,8 +1042,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_backslash,  shiftviewclients,       { .i = +1 } },
 	#endif // SHIFTVIEW_CLIENTS_PATCH
 	#if SHIFTBOTH_PATCH
-	{ MODKEY|ControlMask,           XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
-	{ MODKEY|ControlMask,           XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
+	{ MODKEY|ShiftMask,             XK_Left,       shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
+	{ MODKEY|ShiftMask,             XK_Right,      shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
 	#endif // SHIFTBOTH_PATCH
 	#if SHIFTSWAPTAGS_PATCH && SWAPTAGS_PATCH
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_Left,       shiftswaptags,          { .i = -1 } },
@@ -1142,8 +1142,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
 	#endif // SCRATCHPAD_ALT_1_PATCH
-	{ MODKEY|ShiftMask,             XK_Left,       focusmon,               {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_Right,      focusmon,               {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_Left,       focusmon,               {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_Right,      focusmon,               {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_Tab,        focusmon,               {.i = +1 } },
 	{ MODKEY,                       XK_slash,      spawn,                  SHCMD("notify-send --icon='~/.config/dunst/monitor.png' --urgency low Monitor") },
 	{ MODKEY|ShiftMask|ControlMask, XK_Left,       tagmon,                 {.i = -1 } },
